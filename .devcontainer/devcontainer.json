@@ -1,23 +1,12 @@
 {
-  "name": "desktop-atlauncher-codespace",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "features": {
-    "ghcr.io/devcontainers/features/desktop-lite:1": {}
-  },
-  "forwardPorts": [
-    6080
-  ],
+  "name": "lxde-desktop-java-wrapper",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "forwardPorts": [8080],
+  "postCreateCommand": "bash /workspaces/$(basename $(pwd))/.devcontainer/start-lxde.sh",
   "portsAttributes": {
-    "6080": {
-      "label": "Desktop GUI",
+    "8080": {
+      "label": "LXDE Desktop GUI",
       "onAutoForward": "openBrowser"
-    }
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": []
     }
   }
 }
